@@ -1,0 +1,26 @@
+<html>
+<head>
+<style>
+img{ max-width:180px;}
+div{word-break:break-all; padding:10px;}
+</style>
+
+<script>
+     function encodeImgtoBase64(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#img_64').attr('src', e.target.result).css("display","block");                    
+                    $("#div_base64").text(e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+</head>
+<body>
+<div><input type='file' onchange="encodeImgtoBase64(this);" /></div>
+<div><img id="img_64"  alt="" style="display:none;" /></div>
+<div id="div_base64"/>
+</body>
+</html>
