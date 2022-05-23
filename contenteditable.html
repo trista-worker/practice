@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>     
+    <style>
+      pre{
+        white-space: pre-wrap;
+        background: #EEE;
+      }
+    </style>
+    
+    <script>
+      $('button').click(function(){
+          $('pre').text($('p')[0].outerHTML)
+      });
+
+      $('p[contenteditable=true]').keydown(function(e) {  
+          if (e.keyCode == 13) {  
+            document.execCommand('insertHTML', false, '<br><br>');  
+            return false;
+          }
+        });
+    </script>
+  </hdead>
+  <body>
+    <p contenteditable="true">
+      提升網站在 Google 搜尋中的成效
+      <br><br>
+      Search Console 的工具和報告可協助你衡量網站的 Google 搜尋流量和成效、修正問題，並讓你的網站從眾多 Google 搜尋結果中脫穎而出
+    </p>
+    <pre></pre>
+    <button>顯示原始碼</button>
+    
+  </body>
+</html>
