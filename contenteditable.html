@@ -10,16 +10,20 @@
     </style>
     
     <script>
-      $('button').click(function(){
+      $(document).ready(function () {
+        $('button').click(function(){
           $('pre').text($('p')[0].outerHTML)
-      });
+        });
 
-      $('p[contenteditable=true]').keydown(function(e) {  
+        $('p[contenteditable=true]').keydown(function(e) {  
           if (e.keyCode == 13) {  
             document.execCommand('insertHTML', false, '<br><br>');  
             return false;
           }
         });
+            
+      });
+      
     </script>
   </head>
   <body>
